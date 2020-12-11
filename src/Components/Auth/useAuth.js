@@ -14,7 +14,7 @@ export const AuthProvider = (props) => {
 export const useAuth = () => useContext(AuthContext);
 
 export const PrivateRoute = ({ children, ...rest }) => {
-  const auth = useAuth();
+  // const auth = useAuth();
   const scsUser = localStorage.getItem("SCS_USER");
   const user = JSON.parse(scsUser);
   return (
@@ -96,7 +96,7 @@ const Auth = () => {
         const { displayName, email, photoURL } = user;
         const currentUser = { name: displayName, email, photo: photoURL };
         localStorage.setItem("SCS_USER", JSON.stringify(currentUser));
-        console.log(currentUser);
+        // console.log(currentUser);
         setCurrentUser(currentUser);
       } else {
         // No user is signed in.

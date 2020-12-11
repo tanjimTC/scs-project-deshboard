@@ -8,7 +8,7 @@ const NavBar = () => {
   const scsUser = localStorage.getItem("SCS_USER");
   const user = JSON.parse(scsUser);
   const auth = Auth();
-  console.log(user);
+  // console.log(user);
   const hide = () => {
     let aria = document
       .getElementById("collapsed")
