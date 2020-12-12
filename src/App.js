@@ -5,6 +5,7 @@ import SignUpConatiner from "./Containers/SignUpConatiner";
 import SignInContainer from "./Containers/SignInContainer";
 import { AuthProvider, PrivateRoute } from "./Components/Auth/useAuth";
 import LinkContainer from "./Containers/LinkContainer";
+import Covid19 from "./Containers/Covid19";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route path="/signin">
               <SignInContainer />
+            </Route>
+            <Route path="/covid">
+              <Covid19 />
             </Route>
             <PrivateRoute path="/links">
               <LinkContainer />

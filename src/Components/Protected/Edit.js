@@ -24,7 +24,7 @@ const Edit = (props) => {
       })
       .then(function (docRef) {
         e.target.reset();
-        window.location.pathname = "/";
+        window.location.reload();
       })
       .catch(function (error) {
         console.error("Error adding document: ", error);

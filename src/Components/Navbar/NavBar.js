@@ -85,6 +85,11 @@ const NavBar = () => {
                   </Link>
                 </li>
                 <li className="nav-item px-3">
+                  <Link onClick={() => hide()} className="nav-link" to="/covid">
+                    Covid 19
+                  </Link>
+                </li>
+                <li className="nav-item px-3">
                   <button
                     onClick={handleSignOut}
                     className="btn nav-link"
