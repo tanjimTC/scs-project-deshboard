@@ -102,8 +102,8 @@ const Covid19 = () => {
         </h4>
       </div>
 
-      <center>
-        <select value={country} onChange={countryHandler}>
+      <center className="mb-5">
+        <select value={country} onChange={countryHandler} className="mb-3">
           {summary.Countries &&
             summary.Countries.map((x) => (
               <option key={x.Slug} value={x.Slug}>
@@ -111,7 +111,7 @@ const Covid19 = () => {
               </option>
             ))}
         </select>
-        <select value={days} onChange={daysHandler}>
+        <select value={days} onChange={daysHandler} className="mb-3">
           <option value="7"> Last 7 days</option>
           <option value="15"> Last 15 days</option>
           <option value="30"> Last 30 days</option>
