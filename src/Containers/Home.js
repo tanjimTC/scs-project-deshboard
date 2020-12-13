@@ -1,12 +1,12 @@
 import React from "react";
-import Hero from "../Components/Hero/Hero";
 import NavBar from "../Components/Navbar/NavBar";
+import Covid19 from "./Covid19";
 
 const Home = () => {
   return (
     <div>
       <NavBar />
-      <Hero />
+      <Covid19 />
     </div>
   );
 };

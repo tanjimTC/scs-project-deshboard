@@ -2,7 +2,7 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import Cards from "../Components/CoronaTracker/Cards";
 import Corona from "../Components/CoronaTracker/Corona";
-import NavBar from "../Components/Navbar/NavBar";
+
 const Covid19 = () => {
   const [confirmed, setConfirmed] = useState();
   const [recovered, setRecovered] = useState();
@@ -52,9 +52,9 @@ const Covid19 = () => {
 
     const d = new Date();
     const to = formatDate(d.setDate(d.getDate() - 1));
-    const from = formatDate(d.setDate(d.getDate() - days - 1));
+    const from = formatDate(d.setDate(d.getDate() - days));
 
-    // console.log(from, to);
+    console.log(from, to);
     getCoronaByDate(e.target.value, from, to);
   };
 
@@ -67,7 +67,6 @@ const Covid19 = () => {
       `https://api.covid19api.com/total/country/${countrySlug}/status/confirmed?from=${from}T00:00:00Z&to=${to}T00:00:00Z`
     )
       .then((res) => {
-        console.log(res.data);
         const yAxis = res.data.map((d) => d.Cases);
         const xAxis = res.data.map((d) => d.Date);
         setCoronaCountArr(yAxis);
@@ -84,7 +83,6 @@ const Covid19 = () => {
 
   return (
     <div>
-      <NavBar />
       <div>
         <h1 className="text-center mt-3 mb-4">COVID-19 Update</h1>
       </div>
@@ -102,7 +100,7 @@ const Covid19 = () => {
         </h4>
       </div>
 
-      <center className="mb-5">
+      <center className="mb-5 container">
         <select value={country} onChange={countryHandler} className="mb-3">
           {summary.Countries &&
             summary.Countries.map((x) => (
@@ -129,6 +127,8 @@ const Covid19 = () => {
           <Corona yAxis={coronaCountArr} xAxis={label} />
         </>
       )}
+      <br />
+      <br />
     </div>
   );
 };
