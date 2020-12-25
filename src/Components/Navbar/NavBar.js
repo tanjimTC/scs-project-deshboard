@@ -54,7 +54,12 @@ const NavBar = () => {
                 Home
               </Link>
             </li>
-            {!user && (
+            <li className="nav-item px-3">
+              <Link onClick={() => hide()} className="nav-link" to="/link">
+                News
+              </Link>
+            </li>
+            {/* {!user && (
               <>
                 <li className="nav-item px-3">
                   <Link
@@ -76,7 +81,7 @@ const NavBar = () => {
                   </Link>
                 </li>
               </>
-            )}
+            )} */}
             {user && (
               <>
                 <li className="nav-item px-3">

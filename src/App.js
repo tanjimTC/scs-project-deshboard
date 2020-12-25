@@ -6,6 +6,8 @@ import SignInContainer from "./Containers/SignInContainer";
 import { AuthProvider, PrivateRoute } from "./Components/Auth/useAuth";
 import LinkContainer from "./Containers/LinkContainer";
 import Covid19 from "./Containers/Covid19";
+import LinkContainerPublic from "./Containers/LinkContainerPublic";
+import AdminContainer from "./Containers/AdminContainer";
 
 function App() {
   return (
@@ -24,6 +26,12 @@ function App() {
             </Route>
             <Route path="/covid">
               <Covid19 />
+            </Route>
+            <Route path="/admin">
+              <AdminContainer />
+            </Route>
+            <Route path="/link">
+              <LinkContainerPublic />
             </Route>
             <PrivateRoute path="/links">
               <LinkContainer />

@@ -51,7 +51,14 @@ const Protected = () => {
                 <div className="card-header">Links</div>
                 <div className="card-body">
                   <h5 className="card-title">{link.data().title}</h5>
-                  <p className="card-text">{link.data().link}</p>
+                  <a
+                    className="card-text"
+                    href={link.data().link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.data().link}
+                  </a>
                   <hr style={{ margin: "0px" }} />
                   <div className="d-flex justify-content-end">
                     <button onClick={() => deleteLink(link)} className="btn">
