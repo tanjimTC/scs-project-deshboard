@@ -22,6 +22,14 @@ class ActionProvider {
     this.addMessageToBotState(message);
   };
 
+  helloWorldHandler = () => {
+    const message = this.createChatBotMessage("Hello again!");
+    const message2 = this.createChatBotMessage("How can I help you!");
+
+    this.addMessageToBotState(message);
+    this.addMessageToBotState(message2);
+  };
+
   addMessageToBotState = (messages) => {
     if (Array.isArray(messages)) {
       this.setState((state) => ({

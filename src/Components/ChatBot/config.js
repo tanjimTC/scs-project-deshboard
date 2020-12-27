@@ -13,7 +13,7 @@ const config = {
       backgroundColor: "#5ccc9d",
     },
   },
-  initialMessages: [createChatBotMessage(`Hi There!`)],
+  initialMessages: [createChatBotMessage(`Hello!`)],
   customComponents: {
     botAvatar: (props) => <FlightBotAvatar {...props} />,
     userAvatar: (props) => <MyUserAvatar {...props} />,

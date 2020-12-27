@@ -16,6 +16,9 @@ class MessageParser {
     ) {
       return this.actionProvider.handleMessageParser();
     }
+    if (lowerCase.includes("hello") || lowerCase.includes("hi")) {
+      return this.actionProvider.helloWorldHandler();
+    }
     return this.actionProvider.handleDefault();
   }
 }
