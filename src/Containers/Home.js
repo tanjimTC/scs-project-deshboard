@@ -7,7 +7,7 @@ import config from "../Components/ChatBot/config";
 import MessageParser from "../Components/ChatBot/MessageParser";
 import ActionProvider from "../Components/ChatBot/ActionProvider";
 
-import "../Components/ChatBot/ChatBot.css";
+import "./ChatBot.css";
 
 const Home = () => {
   const handleClick = () => {
@@ -21,7 +21,7 @@ const Home = () => {
     <div className="Home">
       <NavBar />
 
-      <div className="popup">
+      <div className="popup" style={{ display: "none" }}>
         <Chatbot
           config={config}
           messageParser={MessageParser}
