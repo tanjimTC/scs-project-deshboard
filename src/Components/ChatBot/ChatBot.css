@@ -70,3 +70,20 @@
   overflow: scroll;
   height: 324px;
 }
+
+@media only screen and (max-width: 600px) {
+  .react-chatbot-kit-chat-inner-container {
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid #5b52b7;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+
+  .react-chatbot-kit-chat-message-container {
+    padding: 0 17.5px 10px 17.5px;
+    overflow: scroll;
+    height: 224px;
+  }
+}
