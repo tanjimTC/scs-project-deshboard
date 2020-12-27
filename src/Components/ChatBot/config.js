@@ -1,4 +1,6 @@
 import { createChatBotMessage } from "react-chatbot-kit";
+import FlightBotAvatar from "./FlightBotAvatar ";
+import MyUserAvatar from "./MyUserAvatar ";
 const botName = "SCS BOT";
 const config = {
   botName: botName,
@@ -12,6 +14,10 @@ const config = {
     },
   },
   initialMessages: [createChatBotMessage(`Hi There!`)],
+  customComponents: {
+    botAvatar: (props) => <FlightBotAvatar {...props} />,
+    userAvatar: (props) => <MyUserAvatar {...props} />,
+  },
 };
 
 export default config;
