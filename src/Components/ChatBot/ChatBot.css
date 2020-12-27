@@ -10,7 +10,7 @@
   animation: pulse 5s infinite;
 }
 
-/* @keyframes pulse {
+@keyframes pulse {
   0% {
     background-color: #229de4;
   }
@@ -27,13 +27,14 @@
   100% {
     background-color: #229de4;
   }
-} */
+}
 
 .popup {
   width: 300px;
   position: fixed;
   right: 20px;
   bottom: 90px;
+  display: none;
 }
 
 .react-chatbot-kit-chat-input {

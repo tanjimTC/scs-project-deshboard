@@ -21,7 +21,7 @@ const Home = () => {
     <div className="Home">
       <NavBar />
 
-      <div className="popup" style={{ display: "none" }}>
+      <div className="popup">
         <Chatbot
           config={config}
           messageParser={MessageParser}
