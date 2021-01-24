@@ -8,6 +8,7 @@ import LinkContainer from "./Containers/LinkContainer";
 import Covid19 from "./Containers/Covid19";
 import LinkContainerPublic from "./Containers/LinkContainerPublic";
 import AdminContainer from "./Containers/AdminContainer";
+import AddAdminContainer from "./Containers/AddAdminContainer";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route path="/admin">
               <AdminContainer />
+            </Route>
+            <Route path="/addadmin">
+              <AddAdminContainer />
             </Route>
             <Route path="/link">
               <LinkContainerPublic />

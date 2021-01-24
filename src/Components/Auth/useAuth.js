@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import firebaseConfig from "../../firebase.config";
 import { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
+import { db } from "../../firebase.config";
 
 export const AuthContext = React.createContext();
 export const AuthProvider = (props) => {
@@ -67,27 +68,43 @@ const Auth = () => {
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value)
         .then((res) => {
-          const { email } = res.user;
+          console.log(res.user);
+          const { email, uid } = res.user;
           const signedInUser = { name: name.value, email };
           setCurrentUser(signedInUser);
-          window.location.pathname = "/";
+          db.collection("users")
+            .add({
+              email,
+              isAdmin: false,
+              uid,
+              name: name.value,
+            })
+            .then(function (docRef) {
+              console.log("Document written with ID: ", docRef.id);
+              // window.location.pathname = "/";
+            })
+            .catch(function (error) {
+              console.error("Error adding document: ", error);
+            });
           return res.user;
         });
     } catch (error) {
       alert(error);
     }
     const user = firebaseConfig.auth().currentUser;
-    user
-      .updateProfile({
-        displayName: name.value,
-        email: name.email,
-      })
-      .then(function (res) {
-        console.log(user);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    if (user) {
+      user
+        .updateProfile({
+          displayName: name.value,
+          email: name.email,
+        })
+        .then(function (res) {
+          console.log(user);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }, []);
 
   useEffect(() => {
