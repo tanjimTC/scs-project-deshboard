@@ -8,7 +8,6 @@ const NavBar = () => {
   const scsUser = localStorage.getItem("SCS_USER");
   const user = JSON.parse(scsUser);
   const auth = Auth();
-  // console.log(user);
   const hide = () => {
     let aria = document
       .getElementById("collapsed")
@@ -84,32 +83,40 @@ const NavBar = () => {
             )} */}
             {user && (
               <>
-                <li className="nav-item px-3">
-                  <Link onClick={() => hide()} className="nav-link" to="/links">
-                    Link
-                  </Link>
-                </li>
-                <li className="nav-item px-3">
-                  <Link
-                    onClick={() => hide()}
-                    className="nav-link"
-                    to="/addadmin"
-                  >
-                    Add Admin
-                  </Link>
-                </li>
-                <li className="nav-item px-3">
-                  <button
-                    onClick={handleSignOut}
-                    className="btn nav-link"
-                    style={{ textDecoration: "none", color: "#000" }}
-                  >
-                    Sign out
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <AddLink hide={hide} />
-                </li>
+                {user.isAdmin && (
+                  <>
+                    <li className="nav-item px-3">
+                      <Link
+                        onClick={() => hide()}
+                        className="nav-link"
+                        to="/links"
+                      >
+                        Link
+                      </Link>
+                    </li>
+                    <li className="nav-item px-3">
+                      <Link
+                        onClick={() => hide()}
+                        className="nav-link"
+                        to="/addadmin"
+                      >
+                        Add Admin
+                      </Link>
+                    </li>
+                    <li className="nav-item px-3">
+                      <button
+                        onClick={handleSignOut}
+                        className="btn nav-link"
+                        style={{ textDecoration: "none", color: "#000" }}
+                      >
+                        Sign out
+                      </button>
+                    </li>
+                    <li className="nav-item">
+                      <AddLink hide={hide} />
+                    </li>
+                  </>
+                )}
               </>
             )}
           </ul>

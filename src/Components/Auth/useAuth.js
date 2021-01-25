@@ -68,7 +68,7 @@ const Auth = () => {
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value)
         .then((res) => {
-          console.log(res.user);
+          // console.log(res.user);
           const { email, uid } = res.user;
           const signedInUser = { name: name.value, email };
           setCurrentUser(signedInUser);
@@ -80,8 +80,8 @@ const Auth = () => {
               name: name.value,
             })
             .then(function (docRef) {
-              console.log("Document written with ID: ", docRef.id);
-              // window.location.pathname = "/";
+              // console.log("Document written with ID: ", docRef.id);
+              window.location.pathname = "/";
             })
             .catch(function (error) {
               console.error("Error adding document: ", error);
@@ -110,11 +110,28 @@ const Auth = () => {
   useEffect(() => {
     firebaseConfig.auth().onAuthStateChanged((user) => {
       if (user) {
-        const { displayName, email, photoURL } = user;
-        const currentUser = { name: displayName, email, photo: photoURL };
-        localStorage.setItem("SCS_USER", JSON.stringify(currentUser));
-        // console.log(currentUser);
-        setCurrentUser(currentUser);
+        const { displayName, email } = user;
+        db.collection("users")
+          .where("email", "==", email)
+          .get()
+          .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+              // doc.data() is never undefined for query doc snapshots
+              // console.log(doc.id, " => ", doc.data());
+              const currentUser = {
+                name: displayName,
+                email,
+                userID: doc.data().uid,
+                isAdmin: doc.data().isAdmin,
+              };
+              localStorage.setItem("SCS_USER", JSON.stringify(currentUser));
+              // console.log(currentUser);
+              setCurrentUser(currentUser);
+            });
+          })
+          .catch(function (error) {
+            console.log("Error getting documents: ", error);
+          });
       } else {
         // No user is signed in.
       }

@@ -1,12 +1,12 @@
 import React from "react";
-import AddAdmin from "../Components/AddAdmin/AddAdmin";
+import AddAdmins from "../Components/AddAdmin/AddAdmins";
 import NavBar from "../Components/Navbar/NavBar";
 
 const AddAdminContainer = () => {
   return (
     <div>
       <NavBar />
-      <AddAdmin />
+      <AddAdmins />
     </div>
   );
 };
