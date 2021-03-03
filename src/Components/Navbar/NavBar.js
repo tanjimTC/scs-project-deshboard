@@ -58,6 +58,7 @@ const NavBar = () => {
                 News
               </Link>
             </li>
+
             {/* {!user && (
               <>
                 <li className="nav-item px-3">
@@ -83,6 +84,17 @@ const NavBar = () => {
             )} */}
             {user && (
               <>
+                <>
+                  <li className="nav-item px-3">
+                    <button
+                      onClick={handleSignOut}
+                      className="btn nav-link"
+                      style={{ textDecoration: "none", color: "#000" }}
+                    >
+                      Sign out
+                    </button>
+                  </li>
+                </>
                 {user.isAdmin && (
                   <>
                     <li className="nav-item px-3">
@@ -103,15 +115,7 @@ const NavBar = () => {
                         Add Admin
                       </Link>
                     </li>
-                    <li className="nav-item px-3">
-                      <button
-                        onClick={handleSignOut}
-                        className="btn nav-link"
-                        style={{ textDecoration: "none", color: "#000" }}
-                      >
-                        Sign out
-                      </button>
-                    </li>
+
                     <li className="nav-item">
                       <AddLink hide={hide} />
                     </li>
